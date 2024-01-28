@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltaVisionBackEnd", "SolarEcoBackEnd\AltaVisionBackEnd.csproj", "{2A802936-94CD-4405-98AB-C39DE81EB959}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B5C4E43-39C6-4BED-9850-2632DD777C05} = {9B5C4E43-39C6-4BED-9850-2632DD777C05}
+		{C956DF7B-C50D-4153-848C-367B43ABE4E1} = {C956DF7B-C50D-4153-848C-367B43ABE4E1}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltaVisionBackEndTestProject", "SolarEcoTestProject\AltaVisionBackEndTestProject.csproj", "{70C69281-FE38-4CF2-A107-455CA36E18BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltaVisionBackEnd.Entity", "SolarEcoBackEnd.Entity\AltaVisionBackEnd.Entity.csproj", "{C956DF7B-C50D-4153-848C-367B43ABE4E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltaVisionBackEnd.DataAcessLayer", "SlarEcoBackEnd.DataAcessLayer\AltaVisionBackEnd.DataAcessLayer.csproj", "{9B5C4E43-39C6-4BED-9850-2632DD777C05}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1B28A525-7A94-42A9-B0B9-7FCE2DDFD75F} = {1B28A525-7A94-42A9-B0B9-7FCE2DDFD75F}
+		{A7D51EF2-E0EC-4933-8746-A3F042A540F3} = {A7D51EF2-E0EC-4933-8746-A3F042A540F3}
+		{C956DF7B-C50D-4153-848C-367B43ABE4E1} = {C956DF7B-C50D-4153-848C-367B43ABE4E1}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltaVisionBackEnd.Cryptography", "Cryptography\AltaVisionBackEnd.Cryptography.csproj", "{1B28A525-7A94-42A9-B0B9-7FCE2DDFD75F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D09C482C-8960-4487-9996-AAFF2A09C0A8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltaVisionBackEnd.Logger", "Logger\AltaVisionBackEnd.Logger.csproj", "{A7D51EF2-E0EC-4933-8746-A3F042A540F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AltaVision.Logger", "AltaVision.Logger\AltaVision.Logger.csproj", "{9BFAAFB6-CA71-484E-8D1A-54225DDD74C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A802936-94CD-4405-98AB-C39DE81EB959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A802936-94CD-4405-98AB-C39DE81EB959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A802936-94CD-4405-98AB-C39DE81EB959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A802936-94CD-4405-98AB-C39DE81EB959}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70C69281-FE38-4CF2-A107-455CA36E18BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70C69281-FE38-4CF2-A107-455CA36E18BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70C69281-FE38-4CF2-A107-455CA36E18BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70C69281-FE38-4CF2-A107-455CA36E18BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C956DF7B-C50D-4153-848C-367B43ABE4E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C956DF7B-C50D-4153-848C-367B43ABE4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C956DF7B-C50D-4153-848C-367B43ABE4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C956DF7B-C50D-4153-848C-367B43ABE4E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B5C4E43-39C6-4BED-9850-2632DD777C05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B5C4E43-39C6-4BED-9850-2632DD777C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B5C4E43-39C6-4BED-9850-2632DD777C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B5C4E43-39C6-4BED-9850-2632DD777C05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B28A525-7A94-42A9-B0B9-7FCE2DDFD75F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B28A525-7A94-42A9-B0B9-7FCE2DDFD75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B28A525-7A94-42A9-B0B9-7FCE2DDFD75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B28A525-7A94-42A9-B0B9-7FCE2DDFD75F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D51EF2-E0EC-4933-8746-A3F042A540F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D51EF2-E0EC-4933-8746-A3F042A540F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D51EF2-E0EC-4933-8746-A3F042A540F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7D51EF2-E0EC-4933-8746-A3F042A540F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BFAAFB6-CA71-484E-8D1A-54225DDD74C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BFAAFB6-CA71-484E-8D1A-54225DDD74C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BFAAFB6-CA71-484E-8D1A-54225DDD74C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BFAAFB6-CA71-484E-8D1A-54225DDD74C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2362D653-4F77-4A16-A33F-FC81BEC0597D}
+	EndGlobalSection
+EndGlobal
