@@ -1,6 +1,6 @@
 ﻿namespace SolarEcoBackEnd.Entity
 {
-    public class Appoinment
+    public class Appointment
     {
         public int AppoinmentId { get; set; }
         public string? Name { get; set; }
