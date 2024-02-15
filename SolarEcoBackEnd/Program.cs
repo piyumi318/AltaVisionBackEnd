@@ -1,4 +1,6 @@
 using AltaVision.Logger;
+using AltaVisionBackEnd.DataAcessLayer.DataAccess;
+using AltaVisionBackEnd.DataAcessLayer.Interfaces;
 using Microsoft.AspNetCore.Cors;
 using SolarEcoBackEnd.DataAcessLayer.Interfaces;
 using SolarEcoBackEnd.DB;
@@ -35,6 +37,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IEmailsender,Emailsender>();
 builder.Services.AddScoped<ICustomerDB, CustomerDB>();
 builder.Services.AddScoped<IAdminDB, AdminDB>();
+builder.Services.AddScoped<IAppointmentDB, AppoinmentDB>();
 builder.Services.AddScoped<ILogs, Logs>();
 
 

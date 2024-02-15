@@ -1,4 +1,5 @@
 ﻿using AltaVision.Logger;
+using AltaVisionBackEnd.DataAcessLayer.Interfaces;
 using Cryptography;
 using Dapper;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
 {
-   public class AppoinmentDB
+   public class AppoinmentDB:IAppointmentDB
     {
         static IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         static DBconnector db = DBconnector.GetInstance(configuration);
@@ -22,9 +23,9 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
         private readonly ILogger<AppoinmentDB> _logger;
         private ILogs _logs;
 
-        public AppoinmentDB(SqlConnection connection, ILogger<AppoinmentDB> logger, ILogs logs)
+        public AppoinmentDB( ILogger<AppoinmentDB> logger, ILogs logs)
         {
-            this.connection = connection;
+           
             _logger = logger;
             _logs = logs;
         }
@@ -61,13 +62,13 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
 
 
         }
-        public async Task<Appointment?> GetAppoinmentByUser(string userid)
+        public async Task<Appointment?> GetAppoinmentByUser(string customerid)
         {
 
             try
 
             {
-                var appointment = await connection.QueryFirstAsync<Appointment>("select * from Admin where AdminId= @id", new { id = userid });
+                var appointment = await connection.QueryFirstAsync<Appointment>("select * from Appointment where CustomerId= @id", new { id = customerid });
 
                 if (appointment != null)
                 {
@@ -99,7 +100,7 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
             {
 
                 
-                int result = await connection.ExecuteAsync("Insert into Appointment (AdminId, AdminName, Email, Password, CreatedDate, StatusId) values(@AdminId, @AdminName, @Email, @Password, @CreatedDate, @StatusId)", appointment);
+                int result = await connection.ExecuteAsync("Insert into Appointment (Name, MobileNo, Email, Password, CreatedDate, StatusId) values(@Name, @AdminName, @Email, @Password, @CreatedDate, @StatusId)", appointment);
                 if (result > 0)
                 {
                     _logger.LogInformation("Appointment make successfully");

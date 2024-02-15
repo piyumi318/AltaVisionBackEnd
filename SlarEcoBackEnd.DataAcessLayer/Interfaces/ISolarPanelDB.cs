@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AltaVisionBackEnd.DataAcessLayer.Interfaces
 {
-    public interface IPredictions
+    public interface ISolarPanelDB
     {
     }
 }
