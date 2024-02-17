@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SolarEcoBackEnd.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace AltaVisionBackEnd.DataAcessLayer.Interfaces
 {
     public interface ISolarPanelDB
     {
+        Task<int?> CreateSolarPanel(SolarPanel solarPanel);
+        Task<IEnumerable<SolarPanel>?> GetAllSolarPanels();
     }
 }
