@@ -27,6 +27,7 @@ namespace SolarEcoBackEnd.Controllers
              return Ok(getadmin);
 
         }
+
         [HttpGet]
 
         [Route("GetCustomerId")]
@@ -47,6 +48,7 @@ namespace SolarEcoBackEnd.Controllers
             var getadmin = await _CustomerDB.GetCustomerbyId(customerid);
              return Ok(getadmin);
         }
+
         [HttpGet]
 
         [Route("customerLogin")]
@@ -55,13 +57,13 @@ namespace SolarEcoBackEnd.Controllers
             var getadmin = await _CustomerDB.CustomerLogin(email, password);
             if (getadmin != null)
             {
-                // Process the result
+               
                 return Ok(getadmin);
             }
             else
             {
                 return null;
-                // Handle the case where no elements are found
+              
             }
            
         }
