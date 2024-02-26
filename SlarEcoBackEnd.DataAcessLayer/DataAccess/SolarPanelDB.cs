@@ -29,6 +29,11 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
             _logger = logger;
             _logs = logs;
         }
+
+        public SolarPanelDB()
+        {
+        }
+
         public async Task<int?> CreateSolarPanel(SolarPanel solarPanel)
         {
             try
