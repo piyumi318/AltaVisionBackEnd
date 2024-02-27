@@ -13,8 +13,8 @@ namespace AltaVisionBackEnd.Controllers
     public class AppoinmentController : ControllerBase
     {
         private readonly ILogger<AppoinmentController> _logger;
-        private readonly AppointmentDB _appoinmentDB;
-        public AppoinmentController(ILogger<AppoinmentController> logger, AppointmentDB appoinmentDB) 
+        private readonly IAppointmentDB _appoinmentDB;
+        public AppoinmentController(ILogger<AppoinmentController> logger, IAppointmentDB appoinmentDB) 
         {
             _logger = logger;
             _appoinmentDB = appoinmentDB;

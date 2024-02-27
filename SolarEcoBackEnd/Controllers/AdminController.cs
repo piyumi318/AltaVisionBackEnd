@@ -37,6 +37,7 @@ namespace SolarEcoBackEnd.Controllers
                 return Ok(getadmin);
 
         }
+
         [HttpGet]
 
         [Route("GetAdminId")]
@@ -44,11 +45,10 @@ namespace SolarEcoBackEnd.Controllers
         {
             string getadmin = await _adminDB.GetAdminid();
            
-
-
-            return getadmin;
+                 return getadmin;
 
         }
+
         [HttpGet]
 
         [Route("GetAdminbyId")]
@@ -58,6 +58,7 @@ namespace SolarEcoBackEnd.Controllers
       
             return Ok(getadmin);
         }
+
         [HttpGet]
 
         [Route("AdminLogin")]
@@ -67,9 +68,10 @@ namespace SolarEcoBackEnd.Controllers
 
             return Ok(getadmin);
         }
+
         [HttpPost]
 
-        [Route("GetAdmin")]
+        [Route("RegisterAdmin")]
         public async Task<ActionResult<List<Admin>>> RegisterAdmin(Admin admin)
         {
             await _adminDB.RegisterAdmin(admin);
