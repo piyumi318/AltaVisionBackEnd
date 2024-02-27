@@ -10,6 +10,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltaVisionBackEnd", "SolarE
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltaVisionBackEndTestProject", "SolarEcoTestProject\AltaVisionBackEndTestProject.csproj", "{70C69281-FE38-4CF2-A107-455CA36E18BF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9B5C4E43-39C6-4BED-9850-2632DD777C05} = {9B5C4E43-39C6-4BED-9850-2632DD777C05}
+		{A7D51EF2-E0EC-4933-8746-A3F042A540F3} = {A7D51EF2-E0EC-4933-8746-A3F042A540F3}
+		{C956DF7B-C50D-4153-848C-367B43ABE4E1} = {C956DF7B-C50D-4153-848C-367B43ABE4E1}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltaVisionBackEnd.Entity", "SolarEcoBackEnd.Entity\AltaVisionBackEnd.Entity.csproj", "{C956DF7B-C50D-4153-848C-367B43ABE4E1}"
 EndProject
@@ -29,7 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltaVisionBackEnd.Logger", "Logger\AltaVisionBackEnd.Logger.csproj", "{A7D51EF2-E0EC-4933-8746-A3F042A540F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AltaVision.Logger", "AltaVision.Logger\AltaVision.Logger.csproj", "{9BFAAFB6-CA71-484E-8D1A-54225DDD74C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AltaVision.Logger", "AltaVision.Logger\AltaVision.Logger.csproj", "{9BFAAFB6-CA71-484E-8D1A-54225DDD74C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
