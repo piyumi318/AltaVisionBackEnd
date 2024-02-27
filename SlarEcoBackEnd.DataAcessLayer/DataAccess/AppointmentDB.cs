@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
 {
-   public class AppoinmentDB:AppointmentDB
+   public class AppoinmentDB:IAppointmentDB
     {
         static IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         static DBconnector db = DBconnector.GetInstance(configuration);
