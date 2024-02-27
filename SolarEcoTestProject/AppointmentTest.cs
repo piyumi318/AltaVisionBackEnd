@@ -4,7 +4,7 @@ using AltaVisionBackEnd.DataAcessLayer.Interfaces;
 using Dapper;
 using Microsoft.Extensions.Logging;
 using Moq;
-using SolarEcoBackEnd.Entity;
+
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -23,6 +23,7 @@ namespace AltaVisionBackEndTestProject
     using System.Data.SqlClient;
     using Microsoft.Extensions.Logging;
     using SolarEcoBackEnd.DB;
+    using SolarEcoBackEnd.Entity;
 
     [TestFixture]
     public class AppointmentDBTests

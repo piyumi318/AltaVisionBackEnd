@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SlarEcoBackEnd.DataAcessLayer\AltaVisionBackEnd.DataAcessLayer.csproj" />
+    <ProjectReference Include="..\SolarEcoBackEnd.Entity\AltaVisionBackEnd.Entity.csproj" />
   </ItemGroup>
 
 </Project>
