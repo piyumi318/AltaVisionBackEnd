@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AltaVisionBackEnd.DataAcessLayer.Interfaces
 {
-    public interface AppointmentDB
+    public interface IAppointmentDB
     {
         Task<IEnumerable<Appointment>?> GetAllAppoinment();
         Task<int?> MakeAppointment(Appointment appointment);
