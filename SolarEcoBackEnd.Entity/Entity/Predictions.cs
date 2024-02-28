@@ -2,16 +2,18 @@
 {
     public class Predictions
     {
-        public string? PredictionId { get; set; }
-        public int? WindSpeed { get; set; }
-        public int? Radiation { get; set; }
-        public int? AirTemperature { get; set; }
-        public int? RelativeAirHumidity { get; set; }
+        public int? PredictionId { get; set; }
+        public float? WindSpeed { get; set; }
+        public float? Radiation { get; set; }
+        public float? AirTemperature { get; set; }
+        public float? RelativeAirHumidity { get; set; }
         public int? Hour { get; set; }
-        public int? Sunshine { get; set; }
+        public float? Sunshine { get; set; }
         public int? Month { get; set; }
+        public int? AirPressure { get; set; }
         public int? Day { get; set; }
-        public DateTime? PredicteddDate { get; set; }
+        public string? PredictedBy { get; set; }
+        public DateTime? PredictedDate { get; set; }
         
     }
 }

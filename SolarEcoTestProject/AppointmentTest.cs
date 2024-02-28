@@ -35,19 +35,18 @@ namespace AltaVisionBackEndTestProject
 
             var loggerMock = new Mock<ILogger<AppoinmentDB>>();
             var logsMock = new Mock<ILogs>();
-           // var dbMock = new Mock<DBconnector>();
+        
             var appointmentDB = new AppoinmentDB(loggerMock.Object, logsMock.Object);
 
 
-            // Arrange
             var appointment = new Appointment
             {
                 Name = "John Doe",
                 MobileNo = "1234567890",
                 Address = "123 Main St",
-                CustomerId = "cooo1"
+                CustomerId = "Customer001"
             };
-         //   AppoinmentDB db = new AppoinmentDB(_logger, _logs);
+       
           int? result= await appointmentDB.MakeAppointment(appointment);
 
            
