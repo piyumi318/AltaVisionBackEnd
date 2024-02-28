@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Cryptography;
 using SolarEcoBackEnd.DataAcessLayer.Interfaces;
+using AltaVision.Logger;
+using Microsoft.Extensions.Logging;
 
 namespace SolarEcoBackEnd.DB
 {
@@ -14,6 +16,13 @@ namespace SolarEcoBackEnd.DB
         SqlConnection connection = db.GetConnection();
 
         private IdFactory factory = new IdFactory();
+        private readonly ILogger<CustomerDB> _logger;
+        private ILogs _logs;
+        public CustomerDB(ILogger<CustomerDB> logger, ILogs logs)
+        {
+            _logger = logger;
+            _logs = logs;
+        }
 
 
         public async Task<IEnumerable<Customer>> GetCustomer()

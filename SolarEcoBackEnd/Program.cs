@@ -38,6 +38,8 @@ builder.Services.AddTransient<IEmailsender,Emailsender>();
 builder.Services.AddScoped<ICustomerDB, CustomerDB>();
 builder.Services.AddScoped<IAdminDB, AdminDB>();
 builder.Services.AddScoped<IAppointmentDB, AppoinmentDB>();
+builder.Services.AddScoped<IPredictionsDB, PredictionsDB>();
+
 builder.Services.AddScoped<ISolarPanelDB, SolarPanelDB>();
 builder.Services.AddScoped<ILogs, Logs>();
 

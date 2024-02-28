@@ -187,7 +187,39 @@ namespace SolarEcoBackEnd.DB
             }
 
         }
-       
+        public async Task<bool> ExsistAdmin(string Email)
+        {
+            try
+            {
+
+                var admin = await connection.QuerySingleOrDefaultAsync<int>("SELECT COUNT(*) FROM Admin WHERE Email = @email",new { email = Email });
+
+
+                if (admin > 0)
+                {
+                    _logger.LogInformation("Administor Is Already Exist");
+                    Console.WriteLine();
+                    _logs.WriteLog(DateTime.Now + " Administor Is Already Exist" +  " " + Email);
+                    return true; // Login successful
+                }
+                else
+                {
+                    _logger.LogWarning("Administor Is Not Already Exist");
+                    Console.WriteLine();
+                    _logs.WriteLog(DateTime.Now + " Administor Is Not Already Exist");
+                    return false; // Login failed
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error Occurred: " + ex);
+                Console.WriteLine();
+                _logs.WriteLog(DateTime.Now + " Error Occurred: " + ex);
+                return false; // Login failed due to an exception
+            }
+        }
+
+
 
     }
 }

@@ -11,7 +11,7 @@ namespace SolarEcoBackEnd.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerDB _CustomerDB;
-        CustomerDB DB = new CustomerDB();
+      //  CustomerDB DB = new CustomerDB();
 
         public CustomerController(ICustomerDB customerDB)
         {

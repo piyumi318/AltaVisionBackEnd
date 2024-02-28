@@ -25,28 +25,62 @@ namespace AltaVisionBackEndTestProject
 
             var loggerMock = new Mock<ILogger<SolarPanelDB>>();
             var logsMock = new Mock<ILogs>();
-            // var dbMock = new Mock<DBconnector>();
             var solarPanelDB = new SolarPanelDB(loggerMock.Object, logsMock.Object);
-
-
-            // Arrange
             var solarPanel = new SolarPanel
             {
-                Capacity = 2,
+                Capacity = 6,
                 Price = 2900000,
                 StatusId = 1,
                 SolarPanelId = -1,
-                CreatedBy = 5
+                CreatedBy = "Admin03"
             };
-            //   AppoinmentDB db = new AppoinmentDB(_logger, _logs);
+           
             int? result = await solarPanelDB.CreateSolarPanel(solarPanel);
-
-
 
             Assert.AreEqual(1, result);
 
         }
+        [Test]
+        public async Task UpdateSolarPanel_Success()
+        {
 
+            var loggerMock = new Mock<ILogger<SolarPanelDB>>();
+            var logsMock = new Mock<ILogs>();
+            var solarPanelDB = new SolarPanelDB(loggerMock.Object, logsMock.Object);
+            var solarPanel = new SolarPanel
+            {
+                Capacity = 5,
+                Price = 850000,
+                StatusId = 2,
+                SolarPanelId = 1,
+                CreatedBy = "Admin02"
+            };
+            int? result = await solarPanelDB.CreateSolarPanel(solarPanel);
+            Assert.AreEqual(2, result);
+
+        }
+
+        [Test]
+        public async Task InActiveSolarPanel_Success()
+        {
+
+            var loggerMock = new Mock<ILogger<SolarPanelDB>>();
+            var logsMock = new Mock<ILogs>();
+            // var dbMock = new Mock<DBconnector>();
+            var solarPanelDB = new SolarPanelDB(loggerMock.Object, logsMock.Object);
+           
+            var solarPanel = new SolarPanel
+            {
+                Capacity = 5,
+                Price = 750000,
+                StatusId = 3,
+                SolarPanelId = 3,
+                CreatedBy = "Admin02"
+            };
+            int? result = await solarPanelDB.CreateSolarPanel(solarPanel);
+            Assert.AreEqual(1, result);
+
+        }
 
     }
 }
