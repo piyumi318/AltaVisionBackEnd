@@ -61,13 +61,13 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
 
 
         }
-        public async Task<Predictions?> GetPredictionbyuserId(string PredictedBy)
+        public async Task<IEnumerable<Predictions>?> GetPredictionbyuserId(string PredictedBy)
         {
 
             try
 
             {
-                var prediction = await connection.QueryFirstAsync<Predictions>("select * from Prediction where PredictedBy= @id", new { id = PredictedBy });
+                var prediction = await connection.QueryAsync<Predictions>("select * from Prediction where PredictedBy= @id", new { id = PredictedBy });
 
                 if (prediction != null)
                 {

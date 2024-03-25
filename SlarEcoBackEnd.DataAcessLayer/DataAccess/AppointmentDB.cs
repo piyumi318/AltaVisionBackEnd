@@ -100,8 +100,8 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
             try
             {
 
-                
-                int result = await connection.ExecuteAsync("Insert into Appointment (Name, MobileNo, Address, CustomerId) values(@Name, @MobileNo, @Address, @CustomerId)", appointment);
+                DateTime date = DateTime.Now;
+                int result = await connection.ExecuteAsync("Insert into Appointment (Name, MobileNo, Address, CustomerId,RequestedDate, IsReview) values(@Name, @MobileNo, @Address, @CustomerId,@RequestedDate, @IsReview)", appointment);
                 if (result > 0)
                 {
                     _logger.LogInformation("Appointment make successfully");

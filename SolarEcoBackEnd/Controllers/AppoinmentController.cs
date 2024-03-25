@@ -23,10 +23,10 @@ namespace AltaVisionBackEnd.Controllers
         [HttpPost]
 
         [Route("MakeAppointment")]
-        public async Task<ActionResult<List<Appointment>>> MakeAppointment(Appointment appointment)
+        public async Task<ActionResult<bool>> MakeAppointment(Appointment appointment)
         {
-            await _appoinmentDB.MakeAppointment(appointment);
-            return Ok();
+            bool isSuccess= await _appoinmentDB.MakeAppointment(appointment)>0;
+            return Ok(isSuccess);
         }
 
         [HttpGet]
@@ -43,9 +43,9 @@ namespace AltaVisionBackEnd.Controllers
         [HttpGet]
 
         [Route("GetAppoinmentByuserId")]
-        public async Task<ActionResult<Admin>> GetAppoinmentByUser(string userid)
+        public IActionResult GetAppoinmentByUser(string userid)
         {
-            var getadmin = await _appoinmentDB.GetAppoinmentByUser(userid);
+            var getadmin =  _appoinmentDB.GetAppoinmentByUser(userid);
 
             return Ok(getadmin);
         }

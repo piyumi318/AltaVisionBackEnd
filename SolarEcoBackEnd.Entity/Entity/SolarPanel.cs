@@ -7,5 +7,7 @@
         public int Price { get; set; }
         public string CreatedBy { get; set; }
         public int StatusId { get; set; }
+        public int[] Capacities { get; set; }
+        public int Totalprice { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace AltaVisionBackEnd.Controllers
         [HttpGet]
 
         [Route("GetAllSolarpanels")]
-        public async Task<ActionResult<List<Appointment>>> GetAllSolarPanels()
+        public async Task<ActionResult<List<SolarPanel>>> GetAllSolarPanels()
         {
             var getSlolarPanels = await _solarPanelDB.GetAllSolarPanels();
 
@@ -38,5 +38,22 @@ namespace AltaVisionBackEnd.Controllers
 
         }
 
+        [HttpGet]
+
+        [Route("CapacityandCost")]
+        public async Task<ActionResult<List<SolarPanel>>> CalculateRequiredCapacityandCost(int units)
+        {
+            int[] capacities = _solarPanelDB.CalculateRequiredCapacity(units);
+            int total = await _solarPanelDB.CalculateCostOfSolarPanel(capacities);
+
+            // Create the response object
+            var response = new SolarPanel
+            {
+                Capacities = capacities,
+                Totalprice = total
+            };
+            return Ok(response);
+
+        }
     }
 }

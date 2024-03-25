@@ -47,17 +47,17 @@ namespace SolarEcoBackEnd.DB
 
                     string idString = Id.Substring(8);
                     int CTR = Int32.Parse(idString);
-                    if (CTR >= 1 && CTR <= 9)
+                    if (CTR >= 1 && CTR < 9)
                     {
                         CTR = CTR + 1;
                         customerId = "Customer000" + CTR;
                     }
-                    else if (CTR >= 10 && CTR <= 99)
+                    else if (CTR >= 9 && CTR < 99)
                     {
                         CTR = CTR + 1;
                         customerId = "Customer00" + CTR;
                     }
-                    else if (CTR >= 10 && CTR <= 999)
+                    else if (CTR >= 99 && CTR <999)
                     {
                         CTR = CTR + 1;
                         customerId = "Customer0" + CTR;
