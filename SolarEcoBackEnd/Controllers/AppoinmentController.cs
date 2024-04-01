@@ -28,6 +28,14 @@ namespace AltaVisionBackEnd.Controllers
             bool isSuccess= await _appoinmentDB.MakeAppointment(appointment)>0;
             return Ok(isSuccess);
         }
+        [HttpPut]
+
+        [Route("ReviewAppointment")]
+        public async Task<ActionResult<bool>> ReviewAppointment(int appointmentid)
+        {
+            bool isSuccess = await _appoinmentDB.ReviewAppointment(appointmentid) > 0;
+            return Ok(isSuccess);
+        }
 
         [HttpGet]
 
@@ -43,9 +51,9 @@ namespace AltaVisionBackEnd.Controllers
         [HttpGet]
 
         [Route("GetAppoinmentByuserId")]
-        public IActionResult GetAppoinmentByUser(string userid)
+        public async Task<ActionResult<Appointment>> GetAppoinmentByUser(string userid)
         {
-            var getadmin =  _appoinmentDB.GetAppoinmentByUser(userid);
+            var getadmin = await _appoinmentDB.GetAppoinmentByUser(userid);
 
             return Ok(getadmin);
         }

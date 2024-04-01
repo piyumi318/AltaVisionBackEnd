@@ -118,7 +118,7 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
             // Determine rate based on the remaining unit value
             switch (unit)
             {
-                case int n when (n >= 200 && n < 240):
+                case int n when (n >= 1 && n < 240):
                     requiredCapacity.Add(2);
                     break;
                 case int n when (n >= 240 && n < 360):
