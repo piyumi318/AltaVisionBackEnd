@@ -69,12 +69,20 @@ namespace SolarEcoBackEnd.Controllers
         }
 
         [HttpPost]
-
         [Route("RegisterCustomer")]
-        public async Task<ActionResult<List<Customer>>> RegisterCustomer(Customer customer)
+        public async Task<ActionResult<bool>> RegisterCustomer(Customer customer)
         {
-           await _CustomerDB.RegisterCustomer(customer);
-            return Ok();
+            bool isSuccess = await _CustomerDB.RegisterCustomer(customer) > 0; // Assuming RegisterCustomer returns the number of affected rows
+            return Ok(isSuccess);
+        }
+        [HttpGet]
+
+        [Route("Exsist")]
+        public async Task<bool> ExsistCustomer(string Email)
+        {
+            bool getadmin = await _CustomerDB.ExsistCustomer(Email);
+
+            return getadmin;
         }
 
     }

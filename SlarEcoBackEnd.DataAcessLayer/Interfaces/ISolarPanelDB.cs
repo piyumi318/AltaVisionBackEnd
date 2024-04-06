@@ -11,5 +11,7 @@ namespace AltaVisionBackEnd.DataAcessLayer.Interfaces
     {
         Task<int?> CreateSolarPanel(SolarPanel solarPanel);
         Task<IEnumerable<SolarPanel>?> GetAllSolarPanels();
+        Task<int> CalculateCostOfSolarPanel(int[] units);
+        int[] CalculateRequiredCapacity(int unit);
     }
 }

@@ -10,7 +10,7 @@ namespace AltaVisionBackEnd.DataAcessLayer.Interfaces
     public interface IPredictionsDB
     {
         Task<int?> SavePrediction(Predictions predictions);
-        Task<Predictions?> GetPredictionbyuserId(string PredictedBy);
+        Task<IEnumerable<Predictions>?> GetPredictionbyuserId(string PredictedBy);
         Task<IEnumerable<Predictions>?> GetAllPrediction();
     }
 }

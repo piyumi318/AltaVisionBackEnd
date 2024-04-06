@@ -12,5 +12,6 @@ namespace AltaVisionBackEnd.DataAcessLayer.Interfaces
         Task<IEnumerable<Appointment>?> GetAllAppoinment();
         Task<int?> MakeAppointment(Appointment appointment);
         Task<Appointment?> GetAppoinmentByUser(string userid);
+        Task<int?> ReviewAppointment(int Appointmentid);
     }
 }

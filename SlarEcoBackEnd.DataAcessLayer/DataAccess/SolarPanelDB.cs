@@ -104,5 +104,75 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
 
 
         }
-    }
+        public int[] CalculateRequiredCapacity(int unit)
+        {
+            List<int> requiredCapacity = new List<int>();
+
+            // Deduct 600 if unit is greater than 600
+            if (unit > 600)
+            {
+                unit -= 600;
+                requiredCapacity.Add(5);
+            }
+
+            // Determine rate based on the remaining unit value
+            switch (unit)
+            {
+                case int n when (n >= 1 && n < 240):
+                    requiredCapacity.Add(2);
+                    break;
+                case int n when (n >= 240 && n < 360):
+                    requiredCapacity.Add(3);
+                    break;
+                case int n when (n >= 360 && n < 480):
+                    requiredCapacity.Add(4);
+                    break;
+                case int n when (n >= 480 && n < 600):
+                    requiredCapacity.Add(5);
+                    break;
+                default:
+                    // For any remaining cases, return 6
+                    requiredCapacity.Add(0);
+                    break;
+            }
+
+            // Convert the list to an array and return
+            return requiredCapacity.ToArray();
+        }
+        public async Task<int> CalculateCostOfSolarPanel(int[] Capacity)
+        {
+            int totalPrice = 0;
+
+            try
+            {
+                foreach (int capacity in Capacity)
+                {
+                    string query = "SELECT price FROM solarPanel WHERE capacity = @Capacity AND isActive = 1";
+                    var price = await connection.QueryFirstOrDefaultAsync<int>(query, new { Capacity = capacity });
+
+                    if (price > 0) 
+                    {
+                        totalPrice += price;
+                    }
+                }
+
+                _logger.LogInformation("Total price calculated successfully: " + totalPrice);
+                Console.WriteLine();
+                _logs.WriteLog(DateTime.Now + " Total price calculated successfully: " + totalPrice);
+
+                return totalPrice;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error occurred while calculating total price: " + ex.Message);
+                Console.WriteLine();
+                _logs.WriteLog(DateTime.Now + " Error occurred while calculating total price: " + ex.Message);
+
+                throw; 
+            }
+        }
+
+
+    
+}
 }

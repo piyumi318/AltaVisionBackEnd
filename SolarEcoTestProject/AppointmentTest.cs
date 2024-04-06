@@ -33,10 +33,10 @@ namespace AltaVisionBackEndTestProject
         public async Task MakeAppointment_Success()
         {
 
-            var loggerMock = new Mock<ILogger<AppoinmentDB>>();
+            var loggerMock = new Mock<ILogger<AppointmentDB>>();
             var logsMock = new Mock<ILogs>();
         
-            var appointmentDB = new AppoinmentDB(loggerMock.Object, logsMock.Object);
+            var appointmentDB = new AppointmentDB(loggerMock.Object, logsMock.Object);
 
 
             var appointment = new Appointment

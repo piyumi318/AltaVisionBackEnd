@@ -10,6 +10,7 @@ namespace AltaVisionBackEndTestProject
     using Microsoft.Extensions.Logging;
     using Moq;
     using NUnit.Framework;
+    using SolarEcoBackEnd.DataAcessLayer.Interfaces;
     using SolarEcoBackEnd.DB;
     using SolarEcoBackEnd.Entity;
 
@@ -19,7 +20,7 @@ namespace AltaVisionBackEndTestProject
         private IdFactory factory = new IdFactory();
         Customer customerResult;
         [Test]
-        public async Task RegisterAdmin_Success()
+        public async Task RegisterCustomer_Success()
         {
 
             var loggerMock = new Mock<ILogger<CustomerDB>>();
@@ -36,7 +37,7 @@ namespace AltaVisionBackEndTestProject
                 DOB = new DateTime(2000, 3, 18),
                 MobileNo="026890303",
                 Address="456/b, kandy road, kadawatha",
-                Email = "admin@gmail.com",
+                Email = "nadimalio@gmail.com",
                 Password = "admin@318",
                 CreatedDate = DateTime.Now,
                 StatusId = 1
@@ -56,6 +57,7 @@ namespace AltaVisionBackEndTestProject
             Assert.That(customerResult.StatusId, Is.EqualTo(customer.StatusId));
 
         }
+
         [Test]
         public async Task CustomerLogin()
         {
@@ -73,8 +75,8 @@ namespace AltaVisionBackEndTestProject
                 DOB = new DateTime(2000, 3, 18),
                 MobileNo = "026890303",
                 Address = "456/b, kandy road, kadawatha",
-                Email = "nadi@gmail.com",
-                Password = "abd@318",
+                Email = "nadimalisadalo123yA@gmail.com",
+                Password = "abd@318#",
                 CreatedDate = DateTime.Now,
                 StatusId = 1
             };
@@ -82,7 +84,7 @@ namespace AltaVisionBackEndTestProject
             int? result = await customerDB.RegisterCustomer(customer);
             
 
-           Customer customerResult = await customerDB.CustomerLogin("nadi@gmail.com", "abd@318");
+           Customer customerResult = await customerDB.CustomerLogin("nadimalisadalo123yA@gmail.com", "abd@318#");
 
 
             Assert.That(customerResult.FirstName, Is.EqualTo(customer.FirstName));
@@ -95,48 +97,57 @@ namespace AltaVisionBackEndTestProject
             Assert.That(customerResult.StatusId, Is.EqualTo(customer.StatusId));
         }
 
-        //    [Test]
-        //    public async Task ExsistAdmin()
-        //    {
+        [Test]
+        public async Task ExsistCustmer()
+        {
 
-        //        var loggerMock = new Mock<ILogger<AdminDB>>();
-        //        var logsMock = new Mock<ILogs>();
+            var loggerMock = new Mock<ILogger<CustomerDB>>();
+            var logsMock = new Mock<ILogs>();
 
-        //        var adminDB = new AdminDB(loggerMock.Object, logsMock.Object);
+            var customerDB = new CustomerDB(loggerMock.Object, logsMock.Object);
+            Id id = factory.CreateId("Customer");
+            var customer = new Customer
+            {
+                CustomerId = id.getId(),
+                FirstName = "Piyumi",
+                LastName = "Rajapaksha",
+                DOB = new DateTime(2000, 3, 18),
+                MobileNo = "026890303",
+                Address = "456/b, kandy road, kadawatha",
+                Email = "piyu123@gmail.com",
+                Password = "abd@318",
+                CreatedDate = DateTime.Now,
+                StatusId = 1
+            };
 
-        //        var admin = new Admin
-        //        {
-        //            AdminName = "Piyumi",
-        //            Email = "admin@gmail.com",
-        //            Password = "admin@318",
-        //            CreatedDate = DateTime.Now,
-        //            StatusId = 1
-        //        };
+            await customerDB.RegisterCustomer(customer);
 
-        //        bool result = await adminDB.ExsistAdmin("admin@gmail.com");
-
-
-
-        //        Assert.AreEqual(true, result);
-
-        //    }
-        //    public async Task ExsistNotAdmin()
-        //    {
-
-        //        var loggerMock = new Mock<ILogger<AdminDB>>();
-        //        var logsMock = new Mock<ILogs>();
-
-        //        var adminDB = new AdminDB(loggerMock.Object, logsMock.Object);
+            bool result = await customerDB.ExsistCustomer(customer.Email);
 
 
 
-        //        bool result = await adminDB.ExsistAdmin("admgggguiyin@gmail.com");
+            Assert.AreEqual(true, result);
+
+        }
+        [Test]
+        public async Task ExsistNotCustomer()
+        {
+
+            var loggerMock = new Mock<ILogger<CustomerDB>>();
+            var logsMock = new Mock<ILogs>();
+
+            var customerDB = new CustomerDB(loggerMock.Object, logsMock.Object);
+
+           
+
+            bool result = await customerDB.ExsistCustomer("piiiiiiiiiiyu123@gmail.com");
 
 
 
-        //        Assert.AreEqual(false, result);
+            Assert.AreEqual(false, result);
 
-        //    }
-        //}
+
+        }
     }
 }
+

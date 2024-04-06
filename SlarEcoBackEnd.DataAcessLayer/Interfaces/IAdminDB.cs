@@ -14,6 +14,7 @@ namespace SolarEcoBackEnd.DataAcessLayer.Interfaces
         Task<Admin?> AdminLogin(string Email, string Password);
         Task<int?> RegisterAdmin(Admin admin);
         Task<string?> GetAdminid();
+        Task<bool> ExsistAdmin(string Email);
 
     }
 }

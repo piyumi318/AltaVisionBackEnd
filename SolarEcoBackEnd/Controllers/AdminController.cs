@@ -72,12 +72,20 @@ namespace SolarEcoBackEnd.Controllers
         [HttpPost]
 
         [Route("RegisterAdmin")]
-        public async Task<ActionResult<List<Admin>>> RegisterAdmin(Admin admin)
+        public async Task<ActionResult<bool>> RegisterAdmin(Admin admin)
         {
-            await _adminDB.RegisterAdmin(admin);
-            return Ok();
+            bool isSuccess= await _adminDB.RegisterAdmin(admin)>0;
+            return Ok(isSuccess);
         }
+        [HttpGet]
 
+        [Route("Exsist")]
+        public async Task<bool> ExsistAdmin(string Email)
+        {
+            bool getadmin = await _adminDB.ExsistAdmin(Email);
+
+            return getadmin;
+        }
 
     }
 }

@@ -58,13 +58,13 @@ namespace AltaVisionBackEndTestProject
                 {
                     AdminId = id.getId(),
                     AdminName = "Piyumi",
-                    Email = "admin@122353gmail.com",
-                    Password = "admi2332n@318#",
+                    Email = "administrator18@gmail.com",
+                    Password = "administrator1@318#",
                     CreatedDate = DateTime.Now,
                     StatusId = 1
                 };
                 await adminDB.RegisterAdmin(admin);
-                adminResult = await adminDB.AdminLogin("admin@122353gmail.com", "admi2332n@318#");
+                adminResult = await adminDB.AdminLogin("administrator18@gmail.com", "administrator1@318#");
            
                 Assert.That( adminResult.AdminId, Is.EqualTo(admin.AdminId));
                 Assert.That(admin.AdminName, Is.EqualTo(adminResult.AdminName));

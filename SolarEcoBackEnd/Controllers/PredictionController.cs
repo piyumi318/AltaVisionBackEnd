@@ -34,7 +34,7 @@ namespace AltaVisionBackEnd.Controllers
         [HttpGet]
 
         [Route("GetPredictionsbyUserId")]
-        public async Task<ActionResult<Predictions>> GetAdminbyId(string userid)
+        public async Task<ActionResult<List<Predictions>>> GetAdminbyId(string userid)
         {
             var getPrediction = await _predictionsDB.GetPredictionbyuserId(userid);
 

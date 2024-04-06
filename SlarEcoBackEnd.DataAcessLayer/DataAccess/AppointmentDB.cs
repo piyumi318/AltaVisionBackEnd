@@ -15,16 +15,16 @@ using System.Threading.Tasks;
 
 namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
 {
-   public class AppoinmentDB:IAppointmentDB
+   public class AppointmentDB:IAppointmentDB
     {
         static IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         static DBconnector db = DBconnector.GetInstance(configuration);
         SqlConnection connection = db.GetConnection();
-        private readonly ILogger<AppoinmentDB> _logger;
+        private readonly ILogger<AppointmentDB> _logger;
         private ILogs _logs;
 
-        public AppoinmentDB() { }
-        public AppoinmentDB( ILogger<AppoinmentDB> logger, ILogs logs)
+        public AppointmentDB() { }
+        public AppointmentDB( ILogger<AppointmentDB> logger, ILogs logs)
         {
            
             _logger = logger;
@@ -40,7 +40,7 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
                 var getAppointment = await connection.QueryAsync<Appointment>("select * from Appointment");
                 if (getAppointment != null)
                 {
-                    _logger.LogInformation("Appointment details are loaded successfully");
+                   _logger.LogInformation("Appointment details are loaded successfully");
                     Console.WriteLine();
                     _logs.WriteLog(DateTime.Now + " " + "Appointment details are loaded successfully");
                     return getAppointment;
@@ -100,8 +100,8 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
             try
             {
 
-                
-                int result = await connection.ExecuteAsync("Insert into Appointment (Name, MobileNo, Address, CustomerId) values(@Name, @MobileNo, @Address, @CustomerId)", appointment);
+                DateTime date = DateTime.Now;
+                int result = await connection.ExecuteAsync("Insert into Appointment (Name, MobileNo, Address, CustomerId,RequestedDate, IsReview) values(@Name, @MobileNo, @Address, @CustomerId,@RequestedDate, @IsReview)", appointment);
                 if (result > 0)
                 {
                     _logger.LogInformation("Appointment make successfully");
@@ -114,6 +114,36 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
                     _logger.LogWarning("Error Occured while saving Appointment details");
                     Console.WriteLine();
                     _logs.WriteLog(DateTime.Now + " " + "Error Occured while saving Appointment details");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error Occured." + ex);
+                Console.WriteLine();
+                _logs.WriteLog(DateTime.Now + " " + "Error Occured. " + ex);
+                return null;
+            }
+        }
+        public async Task<int?> ReviewAppointment(int Appointmentid)
+        {
+            try
+            {
+
+                DateTime date = DateTime.Now;
+                int result = await connection.ExecuteAsync("Update Appointment Set IsReview= 1 where AppoinmentId=@id",new { id = Appointmentid });
+                if (result > 0)
+                {
+                    _logger.LogInformation("Appointment Reviewed successfully");
+                    Console.WriteLine();
+                    _logs.WriteLog(DateTime.Now + " " + "Appointment Reviewed successfully");
+                    return result;
+                }
+                else
+                {
+                    _logger.LogWarning("Error Occured while Review Appointment details");
+                    Console.WriteLine();
+                    _logs.WriteLog(DateTime.Now + " " + "Error Occured while Review Appointment details");
                     return null;
                 }
             }

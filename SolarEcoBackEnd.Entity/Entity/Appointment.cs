@@ -8,6 +8,8 @@
         public string? Address { get; set; }
         public string? CustomerId { get; set; }
         public DateTime? RequestedDate { get; set; }
-    
+
+        public bool IsReview { get; set; }
+
     }
 }
