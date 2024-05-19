@@ -57,5 +57,14 @@ namespace AltaVisionBackEnd.Controllers
 
             return Ok(getadmin);
         }
+        [HttpGet]
+
+        [Route("Exsist")]
+        public async Task<bool> ExsistAppointment(string Id)
+        {
+            bool getadmin = await _appoinmentDB.ExsistAppointment(Id);
+
+            return getadmin;
+        }
     }
 }

@@ -34,6 +34,7 @@ namespace AltaVisionBackEndTestProject
                 AirPressure = 1009,
                 Month = 10,
                 Day = 20,
+                SolarPowerProduction = (decimal?)2456.78,
                 PredictedBy= "Customer0006"
 
 

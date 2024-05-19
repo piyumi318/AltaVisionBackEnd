@@ -44,7 +44,7 @@ namespace AltaVisionBackEndTestProject
                 Name = "John Doe",
                 MobileNo = "1234567890",
                 Address = "123 Main St",
-                CustomerId = "Customer001"
+                CustomerId = "Customer005"
             };
        
           int? result= await appointmentDB.MakeAppointment(appointment);

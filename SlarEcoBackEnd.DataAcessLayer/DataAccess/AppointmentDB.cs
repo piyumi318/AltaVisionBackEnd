@@ -155,5 +155,37 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
                 return null;
             }
         }
+        public async Task<bool> ExsistAppointment(string Id)
+        {
+            try
+            {
+
+                var admin = await connection.QuerySingleOrDefaultAsync<int>("SELECT COUNT(*) FROM Appointment WHERE CustomerId = @id and IsReview=0", new { id = Id });
+
+
+                if (admin > 0)
+                {
+                    _logger.LogInformation("Appointment Is Already Exist");
+                    Console.WriteLine();
+                    _logs.WriteLog(DateTime.Now + " Administor Is Already Exist" + " " + Id);
+                    return true; // Login successful
+                }
+                else
+                {
+                    _logger.LogWarning("Appointment Is Not Already Exist");
+                    Console.WriteLine();
+                    _logs.WriteLog(DateTime.Now + " Appointment Is Not Already Exist");
+                    return false; // Login failed
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Error Occurred: " + ex);
+                Console.WriteLine();
+                _logs.WriteLog(DateTime.Now + " Error Occurred: " + ex);
+                return false; // Login failed due to an exception
+            }
+        }
+
     }
 }

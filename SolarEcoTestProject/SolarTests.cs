@@ -28,7 +28,8 @@ namespace AltaVisionBackEndTestProject
             var solarPanelDB = new SolarPanelDB(loggerMock.Object, logsMock.Object);
             var solarPanel = new SolarPanel
             {
-                Capacity = 6,
+                Capacity = 8,
+                SolarPanelName="Solar123",
                 Price = 2900000,
                 StatusId = 1,
                 SolarPanelId = -1,
@@ -49,10 +50,10 @@ namespace AltaVisionBackEndTestProject
             var solarPanelDB = new SolarPanelDB(loggerMock.Object, logsMock.Object);
             var solarPanel = new SolarPanel
             {
-                Capacity = 5,
+               
                 Price = 850000,
                 StatusId = 2,
-                SolarPanelId = 1,
+                SolarPanelId =5,
                 CreatedBy = "Admin02"
             };
             int? result = await solarPanelDB.CreateSolarPanel(solarPanel);

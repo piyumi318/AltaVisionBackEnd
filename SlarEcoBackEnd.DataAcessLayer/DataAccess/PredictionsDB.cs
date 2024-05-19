@@ -110,7 +110,8 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
                     Hour = predictions.Hour,
                     Month = predictions.Month,
                     Day = predictions.Day,
-                    PredictedBy = predictions.PredictedBy
+                    PredictedBy = predictions.PredictedBy,
+                    SolarPowerProduction=predictions.SolarPowerProduction,
                 }, commandType: System.Data.CommandType.StoredProcedure);
                 if (result > 0)
                 {

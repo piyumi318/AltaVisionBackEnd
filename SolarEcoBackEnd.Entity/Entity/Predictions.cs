@@ -12,6 +12,7 @@
         public int? Month { get; set; }
         public int? AirPressure { get; set; }
         public int? Day { get; set; }
+        public decimal? SolarPowerProduction { get; set; }
         public string? PredictedBy { get; set; }
         public DateTime? PredictedDate { get; set; }
         

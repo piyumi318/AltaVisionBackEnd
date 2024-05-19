@@ -1,5 +1,6 @@
 ﻿using AltaVision.Logger;
 using AltaVisionBackEnd.DataAcessLayer.Interfaces;
+using Cryptography;
 using Dapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -46,6 +47,7 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
                     Price = solarPanel.Price,
                     StatusId = solarPanel.StatusId,
                     SolarPanelId = solarPanel.SolarPanelId,
+                    SolarPanelName=solarPanel.SolarPanelName,
                     CreatedBy = solarPanel.CreatedBy
                 }, commandType: System.Data.CommandType.StoredProcedure);
                 if (result > 0)
@@ -172,7 +174,48 @@ namespace AltaVisionBackEnd.DataAcessLayer.DataAccess
             }
         }
 
+        //public async Task<int?> SaveCostNCapacity(SolarPanel solar)
+        //{
+        //    try
+        //    {
+        //        string query = @"INSERT INTO [dbo].[RequiredSolarPanelDetail] (Cost ,MonthlyElectricityUsage ,CustomerId)
+        //                        OUTPUT INSERTED.RequiredSolarPanelDetailId
+        //                        VALUES (@Totalprice, @MonthlyElectricityUsage, @CreatedBy)
+        //                    ";
 
-    
-}
+        //        int SolarDetailId = await connection.QuerySingleAsync<int>(query, solar);
+        //        string query2 = @" INSERT INTO [dbo].[solarPanels_RequiredSolarPaneldetails]
+        //                       ([RequiredSolarPanelDetailId]
+        //                       ,[SolarPanelId])
+        //                        VALUES (@RequiredSolarPanelDetailId, @SolarPanelId)";
+        //        foreach (var solarId in solar.sola)
+        //        {
+        //            // Execute the second query
+        //            int result = await connection.ExecuteAsync(query2, new { RequiredSolarPanelDetailId = SolarDetailId, SolarPanelId = "another value" });
+        //        }
+        //        if (result > 0)
+        //        {
+        //            _logger.LogInformation("Required solar panel details save successfully");
+        //            Console.WriteLine();
+        //            _logs.WriteLog(DateTime.Now + " " + "Required solar panel details save successfully" );
+        //            return result;
+        //        }
+        //        else
+        //        {
+        //            _logger.LogWarning("Error Occured while saving Required solar panel details");
+        //            Console.WriteLine();
+        //            _logs.WriteLog(DateTime.Now + " " + "Error Occured while saving Required solar panel details");
+        //            return null;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError("Error Occured." + ex);
+        //        Console.WriteLine();
+        //        _logs.WriteLog(DateTime.Now + " " + "Error Occured. " + ex);
+        //        return null;
+        //    }
+        //}
+
+    }
 }
